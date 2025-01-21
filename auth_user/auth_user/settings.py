@@ -54,6 +54,7 @@ MIDDLEWARE = [
 ROOT_URLCONF = 'auth_user.urls'
 
 AUTH_USER_MODEL = 'accounts.CustomUser'
+LOGOUT_REDIRECT_URL = 'login'
 
 TEMPLATES = [
     {

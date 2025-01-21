@@ -26,3 +26,15 @@ class CustomUser(AbstractUser):
     def __str__(self):
         return self.username
 
+ 
+class APIAccess(models.Model):
+    user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
+    api_name = models.CharField(max_length=100)
+    api_url = models.URLField()
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f"{self.user.username} - {self.api_name}"
+
+    class Meta:
+        verbose_name_plural = "API Access"
